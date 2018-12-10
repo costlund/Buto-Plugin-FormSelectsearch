@@ -17,7 +17,7 @@ function PluginFormSelectsearch(){
           {type: 'div', innerHTML: [
               {type: 'span', attribute: {class: 'glyphicon glyphicon-triangle-right', style: 'float:right'}},
               {type: 'span', innerHTML: text, attribute: {id: 'text_'+id}}
-          ], attribute: {class: 'well', style: 'padding:10px'}}
+          ], attribute: {class: 'well', style: 'padding:10px;height:40px'}}
       ], attribute: {href: '#', onclick: "PluginFormSelectsearch.element_click({id: '"+id+"', url: '"+url+"', label: '"+label+"'});"}}
     ];
     PluginWfDom.render(element, document.getElementById('div_'+id));

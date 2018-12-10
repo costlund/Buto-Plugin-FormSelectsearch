@@ -1,8 +1,9 @@
 <?php
 class PluginFormSelectsearch{
   public static function widget_include(){
+    wfPlugin::enable('include/js');
     $element = array();
-    $element[] = wfDocument::createHtmlElement('script', null, array('src' => '/plugin/form/selectsearch/function.js', 'type' => 'text/javascript'));
+    $element[] = wfDocument::createWidget('include/js', 'include', array('src' => '/plugin/form/selectsearch/function.js'));
     wfDocument::renderElement($element);
   }
 }
