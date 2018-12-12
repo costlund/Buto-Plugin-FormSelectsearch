@@ -42,6 +42,8 @@ function PluginFormSelectsearch(){
       {type: 'div', innerHTML: '', attribute: {id: 'ajax_'+data.id} } 
     ];
     PluginWfDom.render(element, document.getElementById('modal_'+data.id+'_body'));
+    setTimeout(plugin_form_selectsearch_focus, 500);
+    function plugin_form_selectsearch_focus(){$("#sw_"+data.id).focus();}
   }
   /**
    * Search url?sw=
@@ -72,4 +74,3 @@ function PluginFormSelectsearch(){
   }
 }
 var PluginFormSelectsearch = new PluginFormSelectsearch();
-
