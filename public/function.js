@@ -36,7 +36,7 @@ function PluginFormSelectsearch(){
       {type: 'div', innerHTML: [
           {type: 'form', innerHTML: [
               {type: 'input', attribute: {class: 'form-control', type: 'text', id: 'sw_'+data.id}},
-              {type: 'input', attribute: {class: 'btn btn-default', type: 'submit', value: PluginI18nJson_v1.i18n('Search'), onclick: "PluginFormSelectsearch.search()" }}
+              {type: 'input', attribute: {class: 'btn btn-default', type: 'submit', value: PluginI18nJson_v1.i18n('Search'), onclick: "PluginFormSelectsearch.search();return false;" }}
           ], attribute: {class: 'form-inline'}}
       ], attribute: {class: 'well'}},
       {type: 'div', innerHTML: '', attribute: {id: 'ajax_'+data.id} } 

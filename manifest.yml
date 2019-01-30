@@ -1,5 +1,8 @@
-version: '1.2'
+version: '1.2.1'
 history:
+  '1.2.1':
+    date: '2019-01-30'
+    description: Bug in Windows/IE when search button post the page.
   '1.2':
     date: '2018-12-12'
     description: Set focus on search field.
