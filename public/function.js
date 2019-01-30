@@ -3,7 +3,7 @@ function PluginFormSelectsearch(){
   /**
    * Modify form element to clickable button showing text.
    */
-  this.mod = function(id, text, url, label){
+  this.mod = function(id, text, url, label, click){
     var select = document.getElementById(id);
     if(select == null){
       alert('PluginFormSelectsearch says: Element with id '+id+' is not in dom.');
@@ -25,6 +25,12 @@ function PluginFormSelectsearch(){
      * Hide current select.
      */
     select.style.display='none';
+    /**
+     * Click
+     */
+    if(click==true){
+      document.getElementById('text_'+id).click();
+    }
   }
   /**
    * Create search modal.

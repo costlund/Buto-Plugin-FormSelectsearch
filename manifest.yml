@@ -1,5 +1,8 @@
-version: '1.2.1'
+version: '1.3'
 history:
+  '1.3':
+    date: '2019-01-30'
+    description: Add automatic click when method mod is called.
   '1.2.1':
     date: '2019-01-30'
     description: Bug in Windows/IE when search button post the page.
