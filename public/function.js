@@ -65,7 +65,6 @@ function PluginFormSelectsearch(){
    * Close search modal.
    */
   this.row_click = function(value, text){
-    console.log(value, text);
     var input = document.getElementById(this.data.id);
     var span = document.getElementById('text_'+this.data.id);
     /**
