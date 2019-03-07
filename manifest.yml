@@ -1,5 +1,8 @@
-version: '1.3'
+version: '1.3.1'
 history:
+  '1.3.1':
+    date: '2019-03-07'
+    description: Bug when search words contains åäö.
   '1.3':
     date: '2019-01-30'
     description: Add automatic click when method mod is called.

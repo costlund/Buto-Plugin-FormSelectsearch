@@ -57,6 +57,7 @@ function PluginFormSelectsearch(){
   this.search = function(){
     var sw = document.getElementById('sw_'+this.data.id).value.trim();
     if(sw.length >= 2){
+      sw = encodeURI(sw);
       PluginWfAjax.load('ajax_'+this.data.id, this.data.url+'?sw='+sw);
     }
   }
