@@ -1,12 +1,16 @@
 function PluginFormSelectsearch(){
   this.data = {id: null, url: null, label: null}
   this.sw_min_length = 2;
+  this.method = function(){};
   /**
    * Modify form element to clickable button showing text.
    */
-  this.mod = function(id, text, url, label, click, sw_min_length){
+  this.mod = function(id, text, url, label, click, sw_min_length, method){
     if(typeof sw_min_length!='undefined'){
       this.sw_min_length = sw_min_length;
+    }
+    if(typeof method!='undefined'){
+      this.method = method;
     }
     var select = document.getElementById(id);
     if(select == null){
@@ -52,6 +56,7 @@ function PluginFormSelectsearch(){
       {type: 'div', innerHTML: '', attribute: {id: 'form_selectsearch_container'} } 
     ];
     PluginWfDom.render(element, document.getElementById('modal_'+data.id+'_body'));
+    this.method();
     setTimeout(plugin_form_selectsearch_focus, 500);
     function plugin_form_selectsearch_focus(){$("#sw_"+data.id).focus();}
   }
