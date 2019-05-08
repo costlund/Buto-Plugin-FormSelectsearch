@@ -1,9 +1,13 @@
 function PluginFormSelectsearch(){
   this.data = {id: null, url: null, label: null}
+  this.sw_min_length = 2;
   /**
    * Modify form element to clickable button showing text.
    */
-  this.mod = function(id, text, url, label, click){
+  this.mod = function(id, text, url, label, click, sw_min_length){
+    if(typeof sw_min_length!='undefined'){
+      this.sw_min_length = sw_min_length;
+    }
     var select = document.getElementById(id);
     if(select == null){
       alert('PluginFormSelectsearch says: Element with id '+id+' is not in dom.');
@@ -56,7 +60,7 @@ function PluginFormSelectsearch(){
    */
   this.search = function(){
     var sw = document.getElementById('sw_'+this.data.id).value.trim();
-    if(sw.length >= 2){
+    if(sw.length >= this.sw_min_length){
       sw = encodeURI(sw);
       PluginWfAjax.load('ajax_'+this.data.id, this.data.url+'?sw='+sw);
     }

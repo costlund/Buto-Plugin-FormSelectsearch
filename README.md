@@ -11,10 +11,11 @@ data:
 ```
 
 Include Javascript in html page with id for input. This will transform element to showing clickable text instead of input. When user click on this a modal windows appears with a search field.
-Last optional param sets to true if one should trigger click when form is loaded.
 
 ```
-PluginFormSelectsearch.mod('_id_of_input_', 'Some text related to value in input', '/path/search', 'Modal label', true);
+click = true;
+sw_min_length = 2;
+PluginFormSelectsearch.mod('_id_of_input_', 'Some text related to value in input', '/path/search', 'Modal label', click, sw_min_length);
 ```
 
 
