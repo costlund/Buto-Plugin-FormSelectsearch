@@ -71,7 +71,7 @@ function PluginFormSelectsearch(){
     var sw = document.getElementById('sw_'+this.data.id).value.trim();
     if(sw.length >= this.sw_min_length){
       if(this.alert_wait){
-        PluginBootstrapAlertwait.run();
+        //PluginBootstrapAlertwait.run();
       }
       $.post(this.data.url, $('#form_selectsearch').serialize()).done(function(data) { 
         document.getElementById('form_selectsearch_container').innerHTML = data;
@@ -80,7 +80,7 @@ function PluginFormSelectsearch(){
           eval(scripts[i].innerHTML);
         }
         if(PluginFormSelectsearch.alert_wait){
-          PluginBootstrapAlertwait.close();
+          //PluginBootstrapAlertwait.close();
         }
       });
     }
