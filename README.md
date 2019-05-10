@@ -25,3 +25,6 @@ Then all search will go to url /path/search?sw=. The Javascript below are to be 
 ```
 PluginFormSelectsearch.row_click('1234', 'Some text related to this value.')
 ```
+
+## Wait indicator
+Supporting PluginBootstrapAlertwait if included in dom.

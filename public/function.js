@@ -2,10 +2,14 @@ function PluginFormSelectsearch(){
   this.data = {id: null, url: null, label: null}
   this.sw_min_length = 2;
   this.method = function(){};
+  this.alert_wait = false;
   /**
    * Modify form element to clickable button showing text.
    */
   this.mod = function(id, text, url, label, click, sw_min_length, method){
+    if(typeof PluginBootstrapAlertwait!='undefined'){
+      this.alert_wait = true;
+    }
     if(typeof sw_min_length!='undefined'){
       this.sw_min_length = sw_min_length;
     }
@@ -66,11 +70,17 @@ function PluginFormSelectsearch(){
   this.search = function(){
     var sw = document.getElementById('sw_'+this.data.id).value.trim();
     if(sw.length >= this.sw_min_length){
+      if(this.alert_wait){
+        PluginBootstrapAlertwait.run();
+      }
       $.post(this.data.url, $('#form_selectsearch').serialize()).done(function(data) { 
         document.getElementById('form_selectsearch_container').innerHTML = data;
         var scripts = document.getElementById('form_selectsearch_container').getElementsByTagName('script');
         for (var i=0;i<scripts.length;i++) {
           eval(scripts[i].innerHTML);
+        }
+        if(PluginFormSelectsearch.alert_wait){
+          PluginBootstrapAlertwait.close();
         }
       });
     }
