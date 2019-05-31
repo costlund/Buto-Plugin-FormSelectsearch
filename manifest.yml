@@ -1,5 +1,8 @@
-version: '1.4'
+version: '1.5'
 history:
+  '1.5':
+    date: '2019-05-31'
+    description: Add loading indicator in form.
   '1.4':
     date: '2019-05-10'
     description: Add support for PluginBootstrapAlertwait to only be used if it exist in dom.

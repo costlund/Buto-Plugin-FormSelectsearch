@@ -27,4 +27,5 @@ PluginFormSelectsearch.row_click('1234', 'Some text related to this value.')
 ```
 
 ## Wait indicator
-Supporting PluginBootstrapAlertwait if included in dom.
+
+An wait indicator appears on search.

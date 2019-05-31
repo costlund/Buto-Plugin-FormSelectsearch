@@ -2,14 +2,10 @@ function PluginFormSelectsearch(){
   this.data = {id: null, url: null, label: null}
   this.sw_min_length = 2;
   this.method = function(){};
-  this.alert_wait = false;
   /**
    * Modify form element to clickable button showing text.
    */
   this.mod = function(id, text, url, label, click, sw_min_length, method){
-    if(typeof PluginBootstrapAlertwait!='undefined'){
-      this.alert_wait = true;
-    }
     if(typeof sw_min_length!='undefined'){
       this.sw_min_length = sw_min_length;
     }
@@ -53,8 +49,8 @@ function PluginFormSelectsearch(){
     var element = [
       {type: 'div', innerHTML: [
           {type: 'form', innerHTML: [
-              {type: 'input', attribute: {class: 'form-control', type: 'text', id: 'sw_'+data.id, name: 'sw'}},
-              {type: 'input', attribute: {class: 'btn btn-default', type: 'submit', value: PluginI18nJson_v1.i18n('Search'), onclick: "PluginFormSelectsearch.search();return false;" }}
+              {type: 'input', attribute: {class: 'form-control', type: 'text',      id: 'sw_'+data.id, name: 'sw'}},
+              {type: 'input', attribute: {class: 'btn btn-default', type: 'submit', value: PluginI18nJson_v1.i18n('Search'), onclick: "PluginFormSelectsearch.search(this);return false;" }}
           ], attribute: {class: 'form-inline', id: 'form_selectsearch'}}
       ], attribute: {class: 'well'}},
       {type: 'div', innerHTML: '', attribute: {id: 'form_selectsearch_container'} } 
@@ -67,23 +63,29 @@ function PluginFormSelectsearch(){
   /**
    * Search url?sw=
    */
-  this.search = function(){
+  this.search = function(btn){
     var sw = document.getElementById('sw_'+this.data.id).value.trim();
     if(sw.length >= this.sw_min_length){
-      if(this.alert_wait){
-        //PluginBootstrapAlertwait.run();
-      }
+      this.loading_add(btn.parentNode);
       $.post(this.data.url, $('#form_selectsearch').serialize()).done(function(data) { 
         document.getElementById('form_selectsearch_container').innerHTML = data;
         var scripts = document.getElementById('form_selectsearch_container').getElementsByTagName('script');
         for (var i=0;i<scripts.length;i++) {
           eval(scripts[i].innerHTML);
         }
-        if(PluginFormSelectsearch.alert_wait){
-          //PluginBootstrapAlertwait.close();
-        }
+        PluginFormSelectsearch.loading_remove();
       });
     }
+  }
+  this.loading_add = function(data){
+    var img = document.createElement('img');
+    img.src = '/plugin/form/form_v1/loading.gif';
+    img.className = 'plugin_form_form_v1_loading';
+    img.style.marginLeft = '10px';
+    document.getElementById(data.id).appendChild(img);
+  }
+  this.loading_remove = function(){
+    $(".plugin_form_form_v1_loading").remove();
   }
   /**
    * Set element value and text.
