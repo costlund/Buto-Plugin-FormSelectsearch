@@ -16,7 +16,8 @@ Use method param to modify dom around the form.
 click = true;
 sw_min_length = 2;
 method = function(){alert();};
-PluginFormSelectsearch.mod('_id_of_input_', 'Some text related to value in input', '/path/search', 'Modal label', click, sw_min_length, method);
+description = 'Text above search input.';
+PluginFormSelectsearch.mod('_id_of_input_', 'Some text related to value in input', '/path/search', 'Modal label', click, sw_min_length, method, description);
 ```
 
 

@@ -1,15 +1,15 @@
 function PluginFormSelectsearch(){
-  this.data = {id: null, url: null, label: null}
+  this.data = {id: null, url: null, label: null, description: null}
   this.sw_min_length = 2;
   this.method = function(){};
   /**
    * Modify form element to clickable button showing text.
    */
-  this.mod = function(id, text, url, label, click, sw_min_length, method){
-    if(typeof sw_min_length!='undefined'){
+  this.mod = function(id, text, url, label, click, sw_min_length, method, description){
+    if(typeof sw_min_length!='undefined' && sw_min_length != null){
       this.sw_min_length = sw_min_length;
     }
-    if(typeof method!='undefined'){
+    if(typeof method!='undefined' && method != null){
       this.method = method;
     }
     var select = document.getElementById(id);
@@ -20,6 +20,9 @@ function PluginFormSelectsearch(){
     if(!text){
       text = '-';
     }
+    if(typeof description!='undefined' && description != null){
+      this.description = description;
+    }
     /**
      * Link.
      */
@@ -29,7 +32,7 @@ function PluginFormSelectsearch(){
               {type: 'span', attribute: {class: 'glyphicon glyphicon-triangle-right', style: 'float:right'}},
               {type: 'span', innerHTML: text, attribute: {id: 'text_'+id}}
           ], attribute: {class: 'alert alert-secondary', style: 'padding:10px;height:40px'}}
-      ], attribute: {href: '#', onclick: "PluginFormSelectsearch.element_click({id: '"+id+"', url: '"+url+"', label: '"+label+"'});"}}
+      ], attribute: {href: '#', onclick: "PluginFormSelectsearch.element_click({id: '"+id+"', url: '"+url+"', label: '"+label+"', description: '"+description+"'});"}}
     ];
     PluginWfDom.render(element, document.getElementById('div_'+id));
     /**
@@ -51,9 +54,10 @@ function PluginFormSelectsearch(){
     PluginWfBootstrapjs.modal({id: 'modal_'+data.id, content: '', label: data.label, size: 'lg', footer_btn_close: true, footer_btn_close_text: PluginI18nJson_v1.i18n('Close')});
     var element = [
       {type: 'div', innerHTML: [
+          {type: 'p', innerHTML: data.description},
           {type: 'form', innerHTML: [
               {type: 'input', attribute: {class: 'form-control', type: 'text',      id: 'sw_'+data.id, name: 'sw'}},
-              {type: 'input', attribute: {class: 'btn btn-default', type: 'submit', value: PluginI18nJson_v1.i18n('Search'), onclick: "PluginFormSelectsearch.search(this);return false;" }}
+              {type: 'input', attribute: {class: 'btn btn-primary', type: 'submit', value: PluginI18nJson_v1.i18n('Search'), onclick: "PluginFormSelectsearch.search(this);return false;" }}
           ], attribute: {class: 'form-inline', id: 'form_selectsearch'}}
       ], attribute: {class: 'well'}},
       {type: 'div', innerHTML: '', attribute: {id: 'form_selectsearch_container'} } 
