@@ -1,5 +1,9 @@
-version: '1.6.0'
+version: '1.6.1'
 history:
+  '1.6.1':
+    date: '2019-12-17'
+    title: Description
+    description: Handle when description not set.
   '1.6.0':
     date: '2019-12-10'
     title: Description

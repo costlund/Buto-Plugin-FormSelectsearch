@@ -1,5 +1,5 @@
 function PluginFormSelectsearch(){
-  this.data = {id: null, url: null, label: null, description: null}
+  this.data = {id: null, url: null, label: null, description: ''}
   this.sw_min_length = 2;
   this.method = function(){};
   /**
@@ -21,7 +21,7 @@ function PluginFormSelectsearch(){
       text = '-';
     }
     if(typeof description!='undefined' && description != null){
-      this.description = description;
+      this.data.description = description;
     }
     /**
      * Link.
@@ -32,7 +32,7 @@ function PluginFormSelectsearch(){
               {type: 'span', attribute: {class: 'glyphicon glyphicon-triangle-right', style: 'float:right'}},
               {type: 'span', innerHTML: text, attribute: {id: 'text_'+id}}
           ], attribute: {class: 'alert alert-secondary', style: 'padding:10px;height:40px'}}
-      ], attribute: {href: '#', onclick: "PluginFormSelectsearch.element_click({id: '"+id+"', url: '"+url+"', label: '"+label+"', description: '"+description+"'});"}}
+      ], attribute: {href: '#', onclick: "PluginFormSelectsearch.element_click({id: '"+id+"', url: '"+url+"', label: '"+label+"', description: '"+this.data.description+"'});"}}
     ];
     PluginWfDom.render(element, document.getElementById('div_'+id));
     /**
