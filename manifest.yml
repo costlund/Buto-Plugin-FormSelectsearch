@@ -1,5 +1,9 @@
-version: '1.7.0'
+version: '1.8.0'
 history:
+  '1.8.0':
+    date: '2020-03-05'
+    title: Search word
+    description: One could add default search word.
   '1.7.0':
     date: '2019-12-23'
     title: Description right

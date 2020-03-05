@@ -18,7 +18,8 @@ sw_min_length = 2;
 method = function(){alert();};
 description = 'Text above search input.';
 description_right = 'Text aligned right of search button.';
-PluginFormSelectsearch.mod('_id_of_input_', 'Some text related to value in input', '/path/search', 'Modal label', click, sw_min_length, method, description, description_right);
+sw = 'default search word...';
+PluginFormSelectsearch.mod('_id_of_input_', 'Some text related to value in input', '/path/search', 'Modal label', click, sw_min_length, method, description, description_right, sw);
 ```
 
 
