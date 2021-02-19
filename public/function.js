@@ -5,6 +5,20 @@ function PluginFormSelectsearch(){
   /**
    * Modify form element to clickable button showing text.
    */
+  this.mod2 = function(data){
+    this.mod(
+      data.id,
+      data.text,
+      data.url,
+      data.lable,
+      data.click,
+      data.sw_min_length,
+      data.method,
+      data.description,
+      data.description_right,
+      data.sw
+      );
+  }
   this.mod = function(id, text, url, label, click, sw_min_length, method, description, description_right, sw){
     if(typeof sw_min_length!='undefined' && sw_min_length != null){
       this.sw_min_length = sw_min_length;
@@ -66,7 +80,7 @@ function PluginFormSelectsearch(){
    */
   this.element_click = function(data){
     this.data = data;
-    PluginWfBootstrapjs.modal({id: 'modal_'+data.id, content: '', label: data.label, size: 'lg', footer_btn_close: true, footer_btn_close_text: PluginI18nJson_v1.i18n('Close')});
+    PluginWfBootstrapjs.modal({id: 'modal_'+data.id, content: '', label: data.label, size: 'xl'});
     var element = [
       {type: 'div', innerHTML: [
           {type: 'p', innerHTML: data.description},

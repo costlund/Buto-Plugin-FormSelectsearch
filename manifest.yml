@@ -1,5 +1,9 @@
-version: 1.8.0
+version: 1.9.0
 history:
+  1.9.0:
+    date: '2021-02-19'
+    title: ''
+    description: 'Add method mod2 with only one object parameter. Improved Readme. Search modal size xl and remove close button.'
   1.8.0:
     date: '2020-03-05'
     title: 'Search word'
