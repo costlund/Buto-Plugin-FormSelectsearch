@@ -22,7 +22,8 @@ data.click = false;
 data.sw_min_length = 0;
 data.method = null;
 data.description = 'Please search';
-data.description_right = 'More text...';
+data.description_right = 'Text on the right side of search field.';
+data.description_below = 'Text below search field.';
 data.sw = '';
 PluginFormSelectsearch.mod2(data);
 ```
@@ -33,3 +34,11 @@ A custom search page has to be created. Can be a table or just links to click on
 ```
 PluginFormSelectsearch.row_click('1234', 'Some text related to this value.')
 ```
+
+## Extra input
+One could use this div (id: form_selectsearch_extra_input) to add extra form controls along with method param.
+```
+data.method = my_custom_method_to_add_extra_input;
+```
+
+

@@ -1,8 +1,12 @@
-version: 1.9.0
+version: 1.10.0
 history:
+  1.10.0:
+    date: '2021-03-26'
+    title: 'Extra input'
+    description: 'Add div for extra input. Add param description_below.'
   1.9.0:
     date: '2021-02-19'
-    title: ''
+    title: 'Method mod2'
     description: 'Add method mod2 with only one object parameter. Improved Readme. Search modal size xl and remove close button.'
   1.8.0:
     date: '2020-03-05'
